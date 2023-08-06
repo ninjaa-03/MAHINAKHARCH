@@ -1,9 +1,16 @@
+// Imports & Calls
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 8000;
+require("dotenv").config({path:"./config.env"});
 
-app.get("/",(req,res)=>{
-    res.send("Hello from server");
-})
+// Port
+const PORT = process.env.PORT;
 
-app.listen(PORT,()=>console.log(`Site is running on http://localhost:${PORT}`));
+// Database
+require("./database/ConnectDB.js");
+
+
+// Listening on port & server
+app.listen(PORT, () =>
+  console.log(`Running on http://localhost:${PORT}`)
+);
