@@ -9,8 +9,9 @@ const PORT = process.env.PORT;
 // Database
 require("./database/ConnectDB.js");
 
+// Middleware
+app.use(express.json());
+app.use(require("./routers/Auth.js"));
 
 // Listening on port & server
-app.listen(PORT, () =>
-  console.log(`Running on http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
