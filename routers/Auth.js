@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
     return res.status(400).send("Filled all the Details carefully");
   }
 
-  const alreadyUser = await User.findOne({ email });
+  const alreadyUser = await User.findOne({email});
 
   if (alreadyUser) {
     return res.status(422).send({ message: "Already Registered" });
