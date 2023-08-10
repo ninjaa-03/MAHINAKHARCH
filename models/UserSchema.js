@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+require("dotenv").config({path:"./config.env"});
+const jwt = require("jsonwebtoken");
 
 const UserModel = new mongoose.Schema({
     name : {
@@ -18,7 +20,22 @@ const UserModel = new mongoose.Schema({
         default:Date.now(),
         required:true
     },
+    tokens:[
+        {
+            token:{
+                type:String,
+                required:true
+            }
+        }
+    ]
 })
+
+UserModel.methods.generateAuthToken = async function (){
+    const token = jwt.sign({_id:this.id},process.env.SECRET);
+    this.tokens = this.tokens.concat({token});
+    await this.save();
+    return token;
+}
 
 const User = new mongoose.model("USER",UserModel);
 
