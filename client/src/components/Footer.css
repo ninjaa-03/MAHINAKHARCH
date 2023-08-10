@@ -1,0 +1,21 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(rgb(54, 54, 255),rgb(10, 10, 10));
+    color: white;
+    padding: .5vmax;
+    font-size: 1vmax;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width : 700px) {
+    .footer{
+    padding: 1vmax;
+    text-align: center;
+    font-size: 1vmax;
+
+    }
+}

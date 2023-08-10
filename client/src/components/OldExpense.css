@@ -1,0 +1,24 @@
+.old-expenses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3vmax;
+}
+table{  
+    border-collapse: collapse;  
+    width: 85vw;   
+}  
+th,td{  
+border: 1px solid rgb(0, 0, 0);   
+padding: .4vmax;
+width: 30%;  
+font-size: 1.4vmax;
+
+}  
+
+h2{
+    margin: 1vmax 0;
+}
+td button{
+    margin: .6vmax 2vmax;
+}
