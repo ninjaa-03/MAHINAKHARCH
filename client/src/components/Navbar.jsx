@@ -11,7 +11,7 @@ function Navbar() {
         <div className="left-one">MahinaKharch </div>
         <div>
           <ul className="middle-one">
-            <li className="n-item"><NavLink to="/user" >User</NavLink></li>
+            <li className="n-item"><NavLink to="/" >User</NavLink></li>
             <li className="n-item"><NavLink to="/oldexpense" >Old Expenses</NavLink></li>
             <li className="n-item"><NavLink to="/login" >Login</NavLink></li>
             <li className="n-item"><NavLink to="/register" >Register</NavLink></li>

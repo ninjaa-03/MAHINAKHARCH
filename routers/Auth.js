@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
   const user = await new User({ name, email, password: hashedPassword });
   await user.save();
 
-  return res.send({ message: "Registered Successfully" });
+  return res.status(200).send({ message: "Registered Successfully" });
 });
 
 // Login

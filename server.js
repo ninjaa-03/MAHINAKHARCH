@@ -10,6 +10,7 @@ const PORT = process.env.PORT;
 require("./database/ConnectDB.js");
 
 // Middleware
+app.use(require("cors")());
 app.use(express.json());
 app.use(require("./routers/Auth.js"));
 
