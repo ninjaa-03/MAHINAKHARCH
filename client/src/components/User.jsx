@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import "./User.css";
 
 function User() {
+
   const [form, setForm] = useState({
     amount: 0,
     description: "",
     date: "",
   });
-  
+
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("http://localhost:4000/transaction", {
+    const res = await fetch("/", {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
         "content-type": "application/json",
       },
     });
-    await res.json();
+    const data = await res.json();
+    if (res.status === 200 || !data) {
+      window.alert("Added Successfully");
+      setForm({ amount: 0, description: "", date: "" });
+    }
   }
 
   function handleInput(e) {
@@ -29,13 +34,14 @@ function User() {
       <div className="total-bal">
         <h1 className="total-expo">Total Expenditure</h1>
         <div className="circle">
-          <h2 className="text-cir">Rs. 500</h2>
+          <h2 className="text-cir">Rs. <br /> 
+          5000000 </h2>
         </div>
       </div>
       <div className="new-item">
         <h1 className="new-item-head">Add new Expense</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <div>
             <label className="label">Amount:</label>
             <input
@@ -68,7 +74,7 @@ function User() {
             />
           </div>
           <div className="btn-mid">
-            <button className="btn" type="submit">
+            <button onClick={handleSubmit} className="btn" type="submit">
               Add New Expense
             </button>
           </div>

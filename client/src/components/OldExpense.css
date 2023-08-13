@@ -9,8 +9,9 @@ table{
     width: 85vw;   
 }  
 th,td{  
-border: 1px solid rgb(0, 0, 0);   
-padding: .4vmax;
+border: 2px solid rgb(62, 38, 183);   
+padding: .6vmax;
+padding-left: 1.2vmax;
 width: 30%;  
 font-size: 1.4vmax;
 
@@ -21,4 +22,8 @@ h2{
 }
 td button{
     margin: .6vmax 2vmax;
+}
+th{
+    background: linear-gradient(rgb(54, 54, 255),rgb(10, 10, 10));
+    color: white;
 }

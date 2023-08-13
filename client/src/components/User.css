@@ -6,8 +6,8 @@
 }
 
 .circle{
-    border: 2vmax solid rgb(91, 107, 255);
-    padding: 9vmax;
+    border: 2vmax solid rgb(54, 54, 255);
+    padding: 10vmax;
     border-radius: 1000vmax;
     width: 5vmax;
     height: 5vmax;
@@ -15,7 +15,7 @@
     box-shadow: 5px 8px 8px 8px #888888;
 }
 .new-item{
-    padding: 1.2vmax;
+    padding: 1.1vmax;
 }
 
 .total-expo,.new-item-head{
@@ -23,7 +23,9 @@
 }
 
 .text-cir{
-    
+    text-align: start;
+    width: 12rem;
+    height: 6rem;
 }
 
 .total-bal{

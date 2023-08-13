@@ -1,27 +1,41 @@
 import React, { useState } from "react";
 import "./Login.css";
-import {NavLink} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    
-  }
-  function handleInput(e){
+  function handleInput(e) {
     console.log(e);
-    setForm({...form,[e.target.name]:e.target.value})
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+    const data = await res.json();
 
+    if (res.status !== 200 || !data) {
+      window.alert("Login Failed");
+    } else {
+      window.alert("Successfully login");
+      navigate("/");
+    }
+  }
 
   return (
     <div className="login-page">
       <h2 className="login-head">Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           <label className="label">E-Mail:</label>
           <input
@@ -43,13 +57,12 @@ function Login() {
           />
         </div>
         <div className="btn-mid">
-          <button className="btn" type="submit">
+          <button onClick={handleSubmit} className="btn" type="submit">
             Login
           </button>
-          
         </div>
       </form>
-      <NavLink to="/register" >New here ? Goto Register..</NavLink>
+      <NavLink to="/register">New here ? Goto Register..</NavLink>
     </div>
   );
 }
