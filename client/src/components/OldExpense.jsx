@@ -14,7 +14,7 @@ function OldExpense() {
 
   const callTransactions = async () => {
     try {
-      const res = await fetch("/oldexpense", {
+      const res = await fetch("/api/oldexpense", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

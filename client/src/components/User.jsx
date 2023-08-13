@@ -17,7 +17,7 @@ function User() {
 
   const callTotal = async (req,res)=>{
     try {
-      const res = await fetch("/totalexpense", {
+      const res = await fetch("/api/totalexpense", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function User() {
 
   const callUser = async () => {
     try {
-      const res = await fetch("/getuser", {
+      const res = await fetch("/api/getuser", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ function User() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("/", {
+    const res = await fetch("/api/", {
       method: "POST",
       body: JSON.stringify(form),
       headers: {

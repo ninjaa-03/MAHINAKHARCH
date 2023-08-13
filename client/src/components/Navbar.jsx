@@ -1,10 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import { UserContext } from "../App";
 
 function Navbar() {
   const [hamburger, setHamburger] = useState(false);
+  const { state, dispatch } = useContext(UserContext);
+  const RenderMenu = () => {
+    if (state)
+      return (
+        <>
+          <li className="n-item">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li className="n-item">
+            <NavLink to="/oldexpense">Old Expenses</NavLink>
+          </li>
+
+          <li className="n-item">
+            <NavLink to="/logout">Logout</NavLink>
+          </li>
+        </>
+      );
+    else {
+      return (
+        <>
+          <li className="n-item">
+            <NavLink to="/register">Register</NavLink>
+          </li>
+          <li className="n-item">
+            <NavLink to="/login">Login</NavLink>
+          </li>
+        </>
+      );
+    }
+  };
 
   return (
     <>
@@ -12,21 +43,7 @@ function Navbar() {
         <div className="left-one">MahinaKharch </div>
         <div>
           <ul className="middle-one">
-            <li className="n-item">
-              <NavLink to="/">User</NavLink>
-            </li>
-            <li className="n-item">
-              <NavLink to="/oldexpense">Old Expenses</NavLink>
-            </li>
-            <li className="n-item">
-              <NavLink to="/register">Register</NavLink>
-            </li>
-            <li className="n-item">
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li className="n-item">
-              <NavLink to="/logout">Logout</NavLink>
-            </li>
+            <RenderMenu></RenderMenu>
           </ul>
         </div>
 

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import { UserContext } from "../App";
 
 function Login() {
+  const {state, dispatch} = useContext(UserContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -15,18 +17,19 @@ function Login() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("/login", {
+    const res = await fetch("/api/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(form),
     });
-    const data = await res.json();
+    const data = await  res.json();
 
-    if (res.status !== 200 || !data) {
+    if (res.status === 400 || !data) {
       window.alert("Login Failed");
     } else {
+      dispatch({type:"USER",payload:true});
       window.alert("Successfully login");
       navigate("/");
     }
