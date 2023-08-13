@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 require("dotenv").config({path:"./config.env"});
+const cookieParser = require("cookie-parser");
 
 // Port
 const PORT = process.env.PORT;
@@ -11,6 +12,7 @@ require("./database/ConnectDB.js");
 
 // Middleware
 app.use(require("cors")());
+app.use(cookieParser());
 app.use(express.json());
 app.use(require("./routers/Auth.js"));
 

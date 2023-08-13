@@ -2,32 +2,46 @@ import React, { useEffect, useState } from "react";
 import "./OldExpense.css";
 import { FcFullTrash } from "react-icons/fc";
 const dayjs = require("dayjs");
+const { useNavigate } = require("react-router-dom");
 
 function OldExpense() {
+  const navigate = useNavigate();
   const [transact, SetTransact] = useState([]);
-  
+
   useEffect(() => {
     callTransactions();
-  }, []);
+  });
 
   const callTransactions = async () => {
-    const res = await fetch("/oldexpense");
-    const { data } = await res.json();
-    SetTransact(data);
+    try {
+      const res = await fetch("/oldexpense", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        Credentials: true,
+      });
+      const { data } = await res.json();
+      SetTransact(data);
+    } catch (e) {
+      console.log(e);
+      navigate("/login");
+    }
   };
-  const formatDate = (date)=>{
-    return dayjs(date).format("DD  MMM  YYYY");
-  }
-  const removeItem = async (_id)=>{
-    if(!window.confirm("Are you sure")) return;
-    const res = await fetch(`/${_id}`,{
-      method:"DELETE",
-    })
-    if(res.ok){
+
+  const formatDate = (date) => {
+    return dayjs(date).format("DD  MMM YYYY");
+  };
+  const removeItem = async (_id) => {
+    if (!window.confirm("Are you sure")) return;
+    const res = await fetch(`/${_id}`, {
+      method: "DELETE",
+    });
+    if (res.ok) {
       window.alert("Deleted");
       callTransactions();
     }
-  }
+  };
 
   return (
     <div className="old-expenses">
@@ -47,8 +61,9 @@ function OldExpense() {
                 <td>{trx.amount}</td>
                 <td>{trx.description}</td>
                 <td>{formatDate(trx.date)}</td>
-                <td><FcFullTrash onClick={()=>removeItem(trx._id)} /></td>
-                
+                <td>
+                  <FcFullTrash onClick={() => removeItem(trx._id)} />
+                </td>
               </tr>
             ))}
           </tbody>

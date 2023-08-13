@@ -4,17 +4,29 @@ import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 
 function Navbar() {
-  const [ hamburger, setHamburger] = useState(false); 
+  const [hamburger, setHamburger] = useState(false);
+
   return (
     <>
-      <div className= {hamburger ? "navbar navbar-mob" : "navbar"}>
+      <div className={hamburger ? "navbar navbar-mob" : "navbar"}>
         <div className="left-one">MahinaKharch </div>
         <div>
           <ul className="middle-one">
-            <li className="n-item"><NavLink to="/" >User</NavLink></li>
-            <li className="n-item"><NavLink to="/oldexpense" >Old Expenses</NavLink></li>
-            <li className="n-item"><NavLink to="/login" >Login</NavLink></li>
-            <li className="n-item"><NavLink to="/register" >Register</NavLink></li>
+            <li className="n-item">
+              <NavLink to="/">User</NavLink>
+            </li>
+            <li className="n-item">
+              <NavLink to="/oldexpense">Old Expenses</NavLink>
+            </li>
+            <li className="n-item">
+              <NavLink to="/register">Register</NavLink>
+            </li>
+            <li className="n-item">
+              <NavLink to="/login">Login</NavLink>
+            </li>
+            <li className="n-item">
+              <NavLink to="/logout">Logout</NavLink>
+            </li>
           </ul>
         </div>
 
@@ -23,7 +35,7 @@ function Navbar() {
         </div>
 
         <button className="hamburger" onClick={() => setHamburger(!hamburger)}>
-          { ! hamburger ? <FiMenu/> : <FiX/>}
+          {!hamburger ? <FiMenu /> : <FiX />}
         </button>
       </div>
     </>

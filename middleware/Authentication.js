@@ -1,10 +1,11 @@
 const User = require("../models/UserSchema.js");
 const jwt = require("jsonwebtoken");
+require("dotenv").config({path:"./config.env"});
 
 const Authenticate = async (req, res, next) => {
   try {
-    const token = req.cookie.MahinaKharch;
-    const verifyToken = jwt.verify(token,process.env.SECRET);
+    const token = req.cookies.mahinakharch;
+    const verifyToken = jwt.verify(token,"MYNAMEISNITISHKUMARANDIAMAWEBDEVELOPER");
 
     const rootUser = await User.findOne({_id:verifyToken._id,"tokens.token":token});
 

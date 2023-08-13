@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import User from "./components/User";
 import OldExpense from "./components/OldExpense";
 import Footer from "./components/Footer";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/register" element={<Register/>} />
       <Route path="/" element={<User/>} />
       <Route path="/oldexpense" element={<OldExpense/>} />
+      <Route path="/logout" element={<Logout/>} />
       
       </Routes>
       <Footer/>

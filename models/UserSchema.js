@@ -31,7 +31,7 @@ const UserModel = new mongoose.Schema({
 })
 
 UserModel.methods.generateAuthToken = async function (){
-    const token = jwt.sign({_id:this.id},process.env.SECRET);
+    const token = jwt.sign({_id:this.id},"MYNAMEISNITISHKUMARANDIAMAWEBDEVELOPER");
     this.tokens = this.tokens.concat({token});
     await this.save();
     return token;

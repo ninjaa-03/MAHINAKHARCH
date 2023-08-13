@@ -1,7 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./User.css";
+const { useNavigate } = require("react-router-dom");
 
 function User() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState("User");
+  const [total,setTotal] = useState("");
+
+  useEffect(() => {
+    callUser();
+  }, []);
+
+  useEffect(()=>{
+    callTotal();
+  })
+
+  const callTotal = async (req,res)=>{
+    try {
+      const res = await fetch("/totalexpense", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        Credentials: true,
+      });
+      const {data} = await res.json();
+      console.log(data);
+      setTotal(data)
+
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  const callUser = async () => {
+    try {
+      const res = await fetch("/getuser", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setUser(data);
+    } catch (e) {
+      console.log(e);
+      navigate("/login");
+    }
+  };
 
   const [form, setForm] = useState({
     amount: 0,
@@ -32,10 +78,13 @@ function User() {
   return (
     <div className="user-page">
       <div className="total-bal">
-        <h1 className="total-expo">Total Expenditure</h1>
+        <h2 className="total-expo">{user.name}</h2>
+        <h3>Last 1 Month Expense</h3>
         <div className="circle">
-          <h2 className="text-cir">Rs. <br /> 
-          5000000 </h2>
+          <h2 className="text-cir">
+            Rs. <br />
+            {total}
+          </h2>
         </div>
       </div>
       <div className="new-item">
