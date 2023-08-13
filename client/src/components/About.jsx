@@ -11,7 +11,7 @@ function About() {
         <p className='heading'>Nitish Kumar</p>
         <ul className='links'>
           <li>  <NavLink className="btn" to="https://www.linkedin.com/in/nitish-kumar-899086221/">LinkedIn</NavLink> </li>
-          <li>  <NavLink className="btn" to="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcRwPkdxbDBlSxxBJtCRNzVRCcrSKXHqnVggNtFQJznnnljXPPWqlhCLjCCFPDMtTHZZDsTMS">E-Mail</NavLink> </li>
+          <li>  <NavLink className="btn" to="https://github.com/ninjaa-03">Github</NavLink> </li>
         </ul>
       </div>
     </div>

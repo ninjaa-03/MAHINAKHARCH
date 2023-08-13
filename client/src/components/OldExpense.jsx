@@ -33,10 +33,16 @@ function OldExpense() {
     return dayjs(date).format("DD  MMM YYYY");
   };
   const removeItem = async (_id) => {
+
     if (!window.confirm("Are you sure")) return;
+
     const res = await fetch(`/api/${_id}`, {
       method: "DELETE",
+      headers:{
+        "content-type":"application/json"
+      }
     });
+
     if (res.ok) {
       window.alert("Deleted");
       callTransactions();
