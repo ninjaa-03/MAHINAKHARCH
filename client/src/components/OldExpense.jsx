@@ -34,7 +34,7 @@ function OldExpense() {
   };
   const removeItem = async (_id) => {
     if (!window.confirm("Are you sure")) return;
-    const res = await fetch(`/${_id}`, {
+    const res = await fetch(`/api/${_id}`, {
       method: "DELETE",
     });
     if (res.ok) {
