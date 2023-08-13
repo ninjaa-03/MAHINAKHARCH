@@ -5,6 +5,7 @@
     align-items: center;
     padding: 1vmax;
     justify-items: center;
+    width: 90vw;
 }
 
 .btn{
@@ -37,15 +38,15 @@
 }
 
 .register-head{
-    margin: 2.5vmax 0px;
-    margin-top: 1.5vmax;
+    margin: 1.5vmax 0px;
+    margin-top: 1vmax;
 }
 
 .inp{
     width: 100%;
-    margin: .8vmax 0;
+    margin: .4vmax 0;
     outline: none;
-    padding: 1vmax;
+    padding: .8vmax;
     font-size: 1.6vmax;
     font-weight: 600;
     border: 1px solid black;
@@ -59,11 +60,11 @@
 
 span{
     /* border: 1px solid rgb(0, 0, 0); */
-    padding: .1vmax .2vmax;
-    font-weight: 700;
+    padding: .1vmax .3vmax;
+    font-weight: 500;
     border-radius: 2.4vmax;
     background: linear-gradient(rgb(104, 104, 104),white);
-    box-shadow: 2px 3px 3px 3px #888888;
+    box-shadow: 1px 2px 2px 2px #888888;
     font-size: 1.1vmax;
     margin-bottom: .4vmax;
 

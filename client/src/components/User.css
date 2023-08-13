@@ -6,25 +6,39 @@
 }
 
 .circle{
-    border: 2vmax solid rgb(54, 54, 255);
-    padding: 9vmax;
+    border: 4.6vmax solid #6b92d5;
+    padding: 7vmax;
     border-radius: 1000vmax;
-    width: 5vmax;
-    height: 5vmax;
+    width: 6vmax;
+    height: 6vmax;
     margin: 1vmax;
-    box-shadow: 5px 8px 8px 8px #888888;
+    box-shadow: 3px 6px 6px 3px #888888;
+    font-weight: 600;
+    font-size: 2vmax;
+    text-align: start;
+}
+.circle h5{
+    font-size: .9vmax;
 }
 .new-item{
-    padding: 1.1vmax;
+    padding: 1.5vmax;
 }
 
-.total-expo,.new-item-head{
-    margin-bottom: 1.2vmax;
+.mail{
+    text-align: center;
+    font-weight: 400;
+    margin: -.5vmax;
+}
+
+.new-item-head{
+    margin-top: -1vmax;
+    margin-bottom: .2vmax;
+    font-weight: 600;
 }
 
 .text-cir{
     text-align: start;
-    width: 12rem;
+    width: 11rem;
     height: 6rem;
 }
 

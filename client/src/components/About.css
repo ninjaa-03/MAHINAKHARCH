@@ -8,6 +8,7 @@ body{
     border-radius: 100000px;
     margin-top: 2vmax;
     margin-bottom: 2vmax;
+    border: 2px solid #000000;
 }
 
 .section{
@@ -54,7 +55,7 @@ body{
     font-size: 1rem;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    color: #0d6efd;
+    color: #3156c8;
     border-color: #0d6efd;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { UserContext } from "../App";
 
 function Navbar() {
@@ -51,9 +51,9 @@ function Navbar() {
           <NavLink to="/about">About Us</NavLink>
         </div>
 
-        <button className="hamburger" onClick={() => setHamburger(!hamburger)}>
-          {!hamburger ? <FiMenu /> : <FiX />}
-        </button>
+        <div className="hamburger" onClick={() => setHamburger(!hamburger)}>
+          {hamburger ? <FaTimes size={25} /> : <FaBars size={25} />}
+        </div>
       </div>
     </>
   );

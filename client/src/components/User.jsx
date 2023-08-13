@@ -5,17 +5,17 @@ const { useNavigate } = require("react-router-dom");
 function User() {
   const navigate = useNavigate();
   const [user, setUser] = useState("User");
-  const [total,setTotal] = useState("");
+  const [total, setTotal] = useState("");
 
   useEffect(() => {
     callUser();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     callTotal();
-  })
+  });
 
-  const callTotal = async (req,res)=>{
+  const callTotal = async (req, res) => {
     try {
       const res = await fetch("/api/totalexpense", {
         headers: {
@@ -24,14 +24,13 @@ function User() {
         },
         Credentials: true,
       });
-      const {data} = await res.json();
+      const { data } = await res.json();
       console.log(data);
-      setTotal(data)
-
+      setTotal(data);
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   const callUser = async () => {
     try {
@@ -77,16 +76,19 @@ function User() {
 
   return (
     <div className="user-page">
-      <div className="total-bal">
-        <h2 className="total-expo">{user.name}</h2>
-        <h3>Last 1 Month Expense</h3>
-        <div className="circle">
-          <h2 className="text-cir">
-            Rs. <br />
-            {total}
-          </h2>
+
+
+    <div className="left">
+      <h2 className="mail">{user.name}</h2>
+      <h5 className="mail">{user.email}</h5>
+      <div className="circle">
+        <div className="text-cir">
+        Rs.{total}
+        <h5>Last 1 Month Expense</h5>
         </div>
       </div>
+    </div>
+
       <div className="new-item">
         <h1 className="new-item-head">Add new Expense</h1>
 

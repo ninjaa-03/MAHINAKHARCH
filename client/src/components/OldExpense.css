@@ -7,9 +7,11 @@
 table{  
     border-collapse: collapse;  
     width: 85vw;   
+    border-radius: 2vmax;
 }  
 th,td{  
-border: 2px solid rgb(62, 38, 183);   
+border: 1.3px solid #000000;
+border-radius: 1px;
 padding: .6vmax;
 padding-left: 1.2vmax;
 width: 30%;  
@@ -17,13 +19,15 @@ font-size: 1.4vmax;
 
 }  
 
+
+
 h2{
     margin: 1vmax 0;
 }
 td button{
-    margin: .6vmax 2vmax;
+    margin: .6vmax 3vmax;
 }
 th{
-    background: linear-gradient(rgb(54, 54, 255),rgb(10, 10, 10));
-    color: white;
+    background-color: #6b92d5;
+    color: rgb(0, 0, 0);
 }

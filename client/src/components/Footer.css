@@ -1,21 +1,21 @@
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(rgb(54, 54, 255),rgb(10, 10, 10));
-    color: white;
-    padding: .5vmax;
-    font-size: 1vmax;
-    text-align: center;
-    font-weight: 500;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  padding: 1vmax;
+  font-size: 1.6vmax;
+  text-align: center;
+  font-weight: 500;
+  border-top: 1px solid black;
+  background-color: #9fb9e5;
+}
 
-  @media screen and (max-width : 700px) {
-    .footer{
+@media screen and (max-width: 700px) {
+  .footer {
     padding: 1vmax;
     text-align: center;
-    font-size: 1vmax;
-
-    }
+    font-size: 2vmax;
+  }
 }

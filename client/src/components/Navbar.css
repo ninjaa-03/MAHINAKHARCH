@@ -3,17 +3,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.4vmax;
-    background: linear-gradient(rgb(54, 54, 255),rgb(10, 10, 10));
-    color: white;
-    box-shadow: 5px 8px 8px 5px #888888;
+    background-color: #9fb9e5;
+    color: rgb(0, 0, 0);
+    box-shadow: 3px 7px 6px 4px #888888;
     margin-bottom: .4vmax;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    
 }
 
 .left-one{
     font-size: 2.5vmax;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'Hammersmith One', sans-serif;
 }
 
 .middle-one{
@@ -22,14 +22,62 @@
 
 .n-item{
     padding: 0 2vmax;
-    font-size: 1.3vmax;
+    font-size: 1.6vmax;
     list-style: none;
 }
 
 .n-item a{
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
 }
+
+.n-item a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .n-item a::before,
+  .n-item a::after {
+   content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+  .n-item a::before {
+    background-color: #000000;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .n-item a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #000000;
+  }
+  
+  .n-item a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+  }
+  .n-item a:hover::after {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .n-item a span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .n-item a:hover span {
+    transform: translate3d(-200%, 0, 0);
+  }
 
 .right-one{
     font-size: 1.7vmax;
@@ -37,7 +85,7 @@
 
 .right-one a{
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .hamburger{
@@ -78,7 +126,7 @@
         transition: left 0.3s ease;
     }
     .n-item a{
-        color: rgb(253, 66, 66);
+        color: rgb(0, 0, 0);
     }
     
 }
