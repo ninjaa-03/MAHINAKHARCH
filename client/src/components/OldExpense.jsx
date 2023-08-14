@@ -9,7 +9,6 @@ const { useNavigate } = require("react-router-dom");
 function OldExpense() {
   const navigate = useNavigate();
   const [transact, SetTransact] = useState([]);
-  const notify = () => toast("Wait Deletion is in process !");
   const notified = () => toast("Successfully Deleted !")
 
   useEffect(() => {
@@ -39,9 +38,6 @@ function OldExpense() {
   const removeItem = async (_id) => {
 
     if (!window.confirm("Are you sure")) return;
-
-    notify();
-
     const res = await fetch(`/api/${_id}`, {
       method: "DELETE",
       headers:{
@@ -51,7 +47,7 @@ function OldExpense() {
 
     if (res.ok) {
       callTransactions();
-      notified();
+      notified
     }
   };
 
