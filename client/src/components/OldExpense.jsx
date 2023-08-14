@@ -11,14 +11,12 @@ function OldExpense() {
   const [transact, SetTransact] = useState([]);
   const notify = () => toast("Wait Deletion is in process !");
   const notified = () => toast("Successfully Deleted !")
-  const notification = () => toast("Wait loading your data");
 
   useEffect(() => {
     callTransactions();
   });
 
   const callTransactions = async () => {
-
     try {
       const res = await fetch("/api/oldexpense", {
         headers: {
@@ -52,8 +50,8 @@ function OldExpense() {
     });
 
     if (res.ok) {
-      notified();
       callTransactions();
+      notified();
     }
   };
 
