@@ -47,7 +47,7 @@ function OldExpense() {
 
     if (res.ok) {
       callTransactions();
-      notified
+      notified();
     }
   };
 
