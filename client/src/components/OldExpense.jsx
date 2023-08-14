@@ -13,7 +13,7 @@ function OldExpense() {
 
   useEffect(() => {
     callTransactions();
-  });
+  },[]);
 
   const callTransactions = async () => {
     try {

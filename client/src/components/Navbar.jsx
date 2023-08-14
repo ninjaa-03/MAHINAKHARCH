@@ -14,6 +14,7 @@ function Navbar() {
           <li className="n-item">
             <NavLink to="/">Home</NavLink>
           </li>
+          
           <li className="n-item">
             <NavLink to="/oldexpense">Old Expenses</NavLink>
           </li>

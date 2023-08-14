@@ -21,6 +21,7 @@ const Routing = () => {
       <Route path="/" element={<User />} />
       <Route path="/oldexpense" element={<OldExpense />} />
       <Route path="/logout" element={<Logout />} />
+
     </Routes>
   );
 };

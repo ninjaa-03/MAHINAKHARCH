@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./User.css";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 const { useNavigate } = require("react-router-dom");
-const { ToastContainer, toast } = require( 'react-toastify' );
-
+const { ToastContainer, toast } = require("react-toastify");
+const dayjs = require("dayjs");
 
 function User() {
   const navigate = useNavigate();
   const [user, setUser] = useState("User");
   const [total, setTotal] = useState("");
   const notify = () => toast("Wait Adding your New Entry !");
-  const notified = () => toast("Successfully Added !")
+  const notified = () => toast("Successfully Added !");
+
+  const formatDate = (date) => {
+    return dayjs(date).format("DD MMM, YY");
+  };
 
   useEffect(() => {
     callUser();
@@ -18,7 +22,7 @@ function User() {
 
   useEffect(() => {
     callTotal();
-  });
+  },[]);
 
   const callTotal = async (req, res) => {
     try {
@@ -83,18 +87,17 @@ function User() {
   return (
     <div className="user-page">
 
-
-    <div className="left">
-      <h2 className="mail">{user.name}</h2>
-      <h5 className="mail">{user.email}</h5>
-      <div className="circle">
-        <div className="text-cir">
-        Rs.{total}
-        <h5>Last 1 Month Expense</h5>
+      <div className="left">
+        <h2 className="mail">{user.name}</h2>
+        <h5 className="mail">{user.email}</h5>
+        <div className="circle">
+          <div className="text-cir">
+            Rs.{total}
+            <h5>( {formatDate(Date.now()-2592000000)} - {formatDate(Date.now())} )</h5>
+            <h5>Last 1 month Expense</h5>
+          </div>
         </div>
       </div>
-    </div>
-
 
       <div className="new-item">
         <h1 className="new-item-head">Add new Expense</h1>
@@ -135,7 +138,7 @@ function User() {
             <button onClick={handleSubmit} className="btn" type="submit">
               Add New Expense
             </button>
-            <ToastContainer/>
+            <ToastContainer />
           </div>
         </form>
       </div>
