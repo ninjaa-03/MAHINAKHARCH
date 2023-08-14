@@ -22,7 +22,7 @@ function User() {
 
   useEffect(() => {
     callTotal();
-  },[]);
+  });
 
   const callTotal = async (req, res) => {
     try {
