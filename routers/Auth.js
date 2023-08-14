@@ -86,7 +86,6 @@ router.post("/", Authenticate, async (req, res) => {
 });
 
 router.get("/totalexpense", Authenticate, async (req, res) => {
-
   const total = await Transaction.find({
     $and: [
       { userId: req.userId },
@@ -97,10 +96,11 @@ router.get("/totalexpense", Authenticate, async (req, res) => {
         },
       },
     ],
-    
   });
   let totalAmount = 0;
-  total.map((trx)=>{totalAmount+=trx.amount});
+  total.map((trx) => {
+    totalAmount += trx.amount;
+  });
   res.json({ data: totalAmount });
 });
 

@@ -95,6 +95,7 @@ function User() {
       </div>
     </div>
 
+
       <div className="new-item">
         <h1 className="new-item-head">Add new Expense</h1>
 
