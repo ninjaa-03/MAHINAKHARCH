@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Register() {
@@ -9,12 +11,15 @@ function Register() {
     email: "",
     password: "",
   });
+  const notify = () => toast("Wait while Registering !");
+  const notified = () => toast("Successfully Registered !")
 
   const handleInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    notify();
     const res = await fetch("/api/register", {
       method: "POST",
       headers: {
@@ -26,7 +31,7 @@ function Register() {
 
     if (res.status !== 200 || !data) window.alert("Failed registration");
     else {
-      window.alert("Successful");
+      notified();
       navigate("/login");
     }
   };
@@ -71,6 +76,7 @@ function Register() {
           <button onClick={handleSubmit} className="btn" type="submit">
             Register
           </button>
+          <ToastContainer/>
         </div>
       </form>
       <NavLink to="/login">Already here ? Goto Login..</NavLink>

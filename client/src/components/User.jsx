@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./User.css";
+import 'react-toastify/dist/ReactToastify.css';
 const { useNavigate } = require("react-router-dom");
+const { ToastContainer, toast } = require( 'react-toastify' );
+
 
 function User() {
   const navigate = useNavigate();
   const [user, setUser] = useState("User");
   const [total, setTotal] = useState("");
+  const notify = () => toast("Wait Adding your New Entry !");
+  const notified = () => toast("Successfully Added !")
 
   useEffect(() => {
     callUser();
@@ -56,6 +61,7 @@ function User() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    notify();
     const res = await fetch("/api/", {
       method: "POST",
       body: JSON.stringify(form),
@@ -65,7 +71,7 @@ function User() {
     });
     const data = await res.json();
     if (res.status === 200 || !data) {
-      window.alert("Added Successfully");
+      notified();
       setForm({ amount: 0, description: "", date: "" });
     }
   }
@@ -128,6 +134,7 @@ function User() {
             <button onClick={handleSubmit} className="btn" type="submit">
               Add New Expense
             </button>
+            <ToastContainer/>
           </div>
         </form>
       </div>

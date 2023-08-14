@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./OldExpense.css";
 import { FcFullTrash } from "react-icons/fc";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 const dayjs = require("dayjs");
 const { useNavigate } = require("react-router-dom");
 
 function OldExpense() {
   const navigate = useNavigate();
   const [transact, SetTransact] = useState([]);
+  const notify = () => toast("Wait Deletion is in process !");
+  const notified = () => toast("Successfully Deleted !")
+  const notification = () => toast("Wait loading your data");
 
   useEffect(() => {
     callTransactions();
   });
 
   const callTransactions = async () => {
+
     try {
       const res = await fetch("/api/oldexpense", {
         headers: {
@@ -36,6 +42,8 @@ function OldExpense() {
 
     if (!window.confirm("Are you sure")) return;
 
+    notify();
+
     const res = await fetch(`/api/${_id}`, {
       method: "DELETE",
       headers:{
@@ -44,7 +52,7 @@ function OldExpense() {
     });
 
     if (res.ok) {
-      window.alert("Deleted");
+      notified();
       callTransactions();
     }
   };
@@ -70,6 +78,7 @@ function OldExpense() {
                 <td>
                   <FcFullTrash onClick={() => removeItem(trx._id)} />
                 </td>
+                <ToastContainer/>
               </tr>
             ))}
           </tbody>

@@ -2,9 +2,12 @@ import React, { useContext, useState } from "react";
 import "./Login.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function Login() {
-  const {state, dispatch} = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
+  const notify = () => toast("Wait making you login !");
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -17,6 +20,7 @@ function Login() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
+    notify();
     const res = await fetch("/api/login", {
       method: "POST",
       headers: {
@@ -24,13 +28,12 @@ function Login() {
       },
       body: JSON.stringify(form),
     });
-    const data = await  res.json();
+    const data = await res.json();
 
     if (res.status === 400 || !data) {
       window.alert("Login Failed");
     } else {
-      dispatch({type:"USER",payload:true});
-      window.alert("Successfully login");
+      dispatch({ type: "USER", payload: true });
       navigate("/");
     }
   }
@@ -63,6 +66,7 @@ function Login() {
           <button onClick={handleSubmit} className="btn" type="submit">
             Login
           </button>
+          <ToastContainer/>
         </div>
       </form>
       <NavLink to="/register">New here ? Goto Register..</NavLink>
