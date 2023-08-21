@@ -16,6 +16,8 @@
     font-weight: 600;
     font-size: 2vmax;
     text-align: start;
+    background: url("../img//navbar.jpg");
+    color: white;
 }
 .circle h5{
     font-size: .9vmax;

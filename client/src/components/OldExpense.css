@@ -8,10 +8,11 @@
 table{  
     border-collapse: collapse;  
     width: 85vw;   
-    border-radius: 2vmax;
+    background: url("../img//navbar.jpg");
+    color: white;
 }  
 th,td{  
-border: 1.3px solid #000000;
+border: 1.3px solid #ffffff;
 border-radius: 1px;
 padding: .6vmax;
 padding-left: 1.2vmax;

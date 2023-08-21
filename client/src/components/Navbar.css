@@ -7,6 +7,8 @@
     color: rgb(0, 0, 0);
     box-shadow: 3px 7px 6px 4px #888888;
     margin-bottom: .4vmax;
+    background: url("../img//navbar.jpg");
+    color: white;
     
 }
 
@@ -28,7 +30,7 @@
 
 .n-item a{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .n-item a {
@@ -45,7 +47,7 @@
     left: 0;
   }
   .n-item a::before {
-    background-color: #000000;
+    background-color: #ffffff;
     height: 2px;
     bottom: 0;
     transform-origin: 100% 50%;
@@ -59,7 +61,7 @@
     transform-origin: 100% 50%;
     transform: translate3d(200%, 0, 0);
     transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-    color: #000000;
+    color: #ffffff;
   }
   
   .n-item a:hover::before {
@@ -85,7 +87,7 @@
 
 .right-one a{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .hamburger{
@@ -126,7 +128,7 @@
         transition: left 0.3s ease;
     }
     .n-item a{
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
     }
     
 }
