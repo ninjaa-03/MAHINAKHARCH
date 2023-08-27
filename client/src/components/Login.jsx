@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import loginPic from "../img/login.png"
 
 function Login() {
   const { state, dispatch } = useContext(UserContext);
@@ -39,7 +40,12 @@ function Login() {
   }
 
   return (
-    <div className="login-page">
+    <div className="main">
+
+    <div className="login-pic comp">
+    <img src={loginPic} alt="" />
+    </div>
+    <div className="login-page comp">
       <h2 className="login-head">Login</h2>
       <form>
         <div>
@@ -70,6 +76,8 @@ function Login() {
         </div>
       </form>
       <NavLink to="/register">New here ? Goto Register..</NavLink>
+    </div>
+
     </div>
   );
 }

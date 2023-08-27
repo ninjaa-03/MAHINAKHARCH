@@ -1,62 +1,66 @@
-.user-page{
-    display: flex;
-    padding: 2vmax;
-    justify-content: space-evenly;
-    align-items: center;
+.user-page {
+  display: flex;
+  padding: 2vmax;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.circle{
-    border: 4.6vmax solid #6b92d5;
-    padding: 7vmax;
-    border-radius: 1000vmax;
-    width: 6vmax;
-    height: 6vmax;
-    margin: 1vmax;
-    box-shadow: 3px 6px 6px 3px #888888;
-    font-weight: 600;
-    font-size: 2vmax;
-    text-align: start;
-    background: url("../img//navbar.jpg");
-    color: white;
+.circle {
+  border: 0.6vmax solid #6b92d5;
+  padding: 7vmax;
+  border-radius: 1000vmax;
+  width: 10vmax;
+  height: 10vmax;
+  margin: 1vmax;
+  box-shadow: 3px 6px 6px 3px #888888;
+  font-weight: 700;
+  font-size: 3vmax;
+  text-align: start;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.978203781512605) 0%,
+    rgba(70, 141, 252, 1) 100%
+  );
+  color: rgb(255, 255, 255);
 }
-.circle h5{
-    font-size: .9vmax;
+.circle h5 {
+  font-size: 1vmax;
 }
-.new-item{
-    padding: 1.5vmax;
-}
-
-.mail{
-    text-align: center;
-    font-weight: 400;
-    margin: -.5vmax;
-}
-
-.new-item-head{
-    margin-top: -1vmax;
-    margin-bottom: .2vmax;
-    font-weight: 600;
+.new-item {
+  padding: 1.5vmax;
 }
 
-.text-cir{
-    text-align: start;
-    width: 11rem;
-    height: 6rem;
+.mail {
+  text-align: center;
+  font-weight: 500;
+  margin: -0.5vmax;
 }
 
-.total-bal{
-    display: flex;
+.new-item-head {
+  margin-top: -1vmax;
+  margin-bottom: 0.2vmax;
+  font-weight: 600;
+}
+
+.text-cir {
+  text-align: start;
+  width: 11rem;
+  height: 6rem;
+}
+
+.total-bal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 700px) {
+  .user-page {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (max-width : 700px) {
-    .user-page{
-        flex-direction: column;
-    }
-    .new-item{
-        padding-top: 3vmax ;
-    }
-    
+  }
+  .new-item {
+    padding-top: 3vmax;
+  }
 }

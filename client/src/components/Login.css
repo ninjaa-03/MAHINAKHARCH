@@ -7,6 +7,22 @@
     justify-items: center;
 }
 
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.comp{
+    margin: 0vmax 5vmax;
+}
+
+.login-pic img{
+    height: 50vh;
+    margin: 6vmax 4vmax;
+}
+
 .btn{
     cursor: pointer;
     outline: 0;
@@ -37,8 +53,8 @@
 }
 
 .login-head{
-    margin: 1.5vmax 0px;
-    margin-top: 1.5vmax;
+    margin: 1vmax 0px;
+    margin-top: 0vmax;
 }
 
 .inp{
@@ -53,4 +69,17 @@
 .label{
     font-weight: 700;
     font-size: 1.4vmax;
+}
+
+@media screen and (max-width : 700px) {
+    .main{
+        flex-direction: column;
+    }
+    .login-pic img{
+        height: 15vh;
+        margin-top: 15px;
+    }
+    .comp{
+        margin: 0vmax 1vmax;
+    }
 }

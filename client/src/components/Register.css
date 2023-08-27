@@ -8,6 +8,11 @@
     width: 90vw;
 }
 
+.register-pic img{
+    height: 60vh;
+    margin-left: 6vmax;
+}
+
 .btn{
     cursor: pointer;
     outline: 0;
@@ -68,4 +73,16 @@ span{
     font-size: 1.1vmax;
     margin-bottom: .4vmax;
 
+}
+
+
+@media screen and (max-width : 700px) {
+    .main{
+        flex-direction: column;
+    }
+    .register-pic img{
+        height: 15vh;
+        margin-top: 15px;
+        margin-left: 0vmax;
+    }
 }

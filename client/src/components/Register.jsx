@@ -3,6 +3,7 @@ import "./Register.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { NavLink, useNavigate } from "react-router-dom";
+import registerPic from "../img/register.webp";
 
 function Register() {
   const navigate = useNavigate();
@@ -37,7 +38,11 @@ function Register() {
   };
 
   return (
-    <div className="register-page">
+    <div className="main">
+    <div className="register-pic">
+    <img src={registerPic} alt="" />
+    </div>
+      <div className="register-page">
       <h2 className="register-head">
         Register <span>New</span>{" "}
       </h2>
@@ -80,6 +85,7 @@ function Register() {
         </div>
       </form>
       <NavLink to="/login">Already here ? Goto Login..</NavLink>
+    </div>
     </div>
   );
 }

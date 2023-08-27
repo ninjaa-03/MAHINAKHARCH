@@ -8,11 +8,11 @@
   font-size: 1.6vmax;
   text-align: center;
   font-weight: 500;
-  border-top: 1px solid black;
-  background-color: #9fb9e5;
-  background: url("../img//footer.jpg");
-  color: white;
+  color: rgb(0, 0, 0);
+  z-index: 100;
+  background-color: rgb(255, 255, 255);
 }
+
 
 @media screen and (max-width: 700px) {
   .footer {
