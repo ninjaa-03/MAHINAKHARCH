@@ -25,5 +25,3 @@ app.get('*',function(req,res){
 
 // Listening on port & server
 app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
-
-
