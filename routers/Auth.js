@@ -5,8 +5,6 @@ const Transaction = require("../models/Transaction.js");
 const bcrypt = require("bcryptjs");
 const Authenticate = require("../middleware/Authentication.js");
 
-//-----------------------------------------------------------------------------------------------------------
-
 // Register
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
@@ -59,8 +57,6 @@ router.post("/login", async (req, res) => {
   else return res.status(400).json({ error: "Invalid credentials" });
 });
 
-//-----------------------------------------------------------------------------------------------------------
-
 // User & New transaction
 router.get("/getuser", Authenticate, async (req, res) => {
   res.send(req.rootUser);
@@ -85,6 +81,7 @@ router.post("/", Authenticate, async (req, res) => {
   }
 });
 
+// Total expenses
 router.get("/totalexpense", Authenticate, async (req, res) => {
   const total = await Transaction.find({
     $and: [
@@ -104,8 +101,6 @@ router.get("/totalexpense", Authenticate, async (req, res) => {
   res.json({ data: totalAmount });
 });
 
-//-----------------------------------------------------------------------------------------------------------
-
 // Old Expenses
 router.get("/oldexpense", Authenticate, async (req, res) => {
   const allTransactions = await Transaction.find({ userId: req.userId }).sort({
@@ -113,13 +108,12 @@ router.get("/oldexpense", Authenticate, async (req, res) => {
   });
   res.status(200).json({ data: allTransactions });
 });
+
 // Delete Transaction
 router.delete("/:id", async (req, res) => {
   await Transaction.findOneAndDelete({ _id: req.params.id });
   res.json({ message: "Ok deleted" });
 });
-
-//-----------------------------------------------------------------------------------------------------------
 
 // LogOut
 router.get("/logout", (req, res) => {
@@ -128,7 +122,5 @@ router.get("/logout", (req, res) => {
   });
   res.status(200).send("User logout");
 });
-
-//-----------------------------------------------------------------------------------------------------------
 
 module.exports = router;
